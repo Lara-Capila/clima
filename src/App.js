@@ -1,8 +1,15 @@
+import { Fragment } from 'react';
 import './App.css';
 
 function App() {
   return (
-  <h1>consulte o clima da sua cidade</h1>
+    <Fragment>
+      <h1>Previsão do Tempo</h1>
+      <input
+        type="text"
+        placeholder="Insira aqui o nome da sua cidade"
+      />
+    </Fragment>
   );
 }
 
