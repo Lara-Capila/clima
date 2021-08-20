@@ -11,8 +11,8 @@ function HomePage() {
     setCityName({ ...cityName, value });
   }
 
-  function handleClick() {
-    fetchWeather(cityName);
+  async function handleClick() {
+    await fetchWeather(encodeURIComponent(Object.values(cityName)));
   }
 
   return (
