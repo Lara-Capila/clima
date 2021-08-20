@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ClimaContext from './ClimaContext';
 
 function ClimaProvider({ children }) {
-  const [cityName, setCityName] = useState({});
+  const [cityName, setCityName] = useState();
   const context = {
     cityName,
     setCityName,
