@@ -1,31 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+// import ClimateResult from '../components/Climate';
+import Loading from '../components/Loading';
 
-import { BsSearch } from 'react-icons/bs';
+import MainComponent from '../components/MainComponent';
 import ClimaContext from '../context/ClimaContext';
-import fetchWeather from '../services/requestAPI';
+import { fetchWeatherWithLocation } from '../services/requestAPI';
 
 function HomePage() {
-  const { cityName, setCityName } = useContext(ClimaContext);
+  const {
+    setDataResult,
+    isLocation,
+    setLocation,
+  } = useContext(ClimaContext);
 
-  function handleChangeInput({ target: { value } }) {
-    setCityName({ ...cityName, value });
-  }
-
-  async function handleClick() {
-    await fetchWeather(encodeURIComponent(Object.values(cityName)));
-  }
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      fetchWeatherWithLocation(position.coords.latitude, position.coords.longitude)
+        .then((res) => setDataResult(res.results));
+      setLocation(true);
+    });
+  }, []);
+  console.log(isLocation);
 
   return (
-    <section>
-      <h1>Previsão do tempo</h1>
-      <input
-        type="text"
-        name="inputCity"
-        placeholder="Pesquise aqui o nome da cidade"
-        onChange={ handleChangeInput }
-      />
-      <BsSearch onClick={ handleClick } />
-    </section>
+    <main>
+      <section>
+        <MainComponent />
+        <Loading />
+      </section>
+    </main>
   );
 }
 
