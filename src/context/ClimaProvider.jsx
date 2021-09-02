@@ -5,15 +5,7 @@ import ClimaContext from './ClimaContext';
 
 function ClimaProvider({ children }) {
   const [cityName, setCityName] = useState({});
-  const [dataResult, setDataResult] = useState({
-    city: null,
-    date: null,
-    temp: null,
-    description: null,
-    humidity: null,
-    wind_speedy: null,
-    forecast: [],
-  });
+  const [dataResult, setDataResult] = useState();
   const [isLocation, setLocation] = useState(false);
   const [isLoading, setLoading] = useState(true);
 
