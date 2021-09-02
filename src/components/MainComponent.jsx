@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 
-import { BsSearch } from 'react-icons/bs';
 import ClimaContext from '../context/ClimaContext';
 import { fetchWeather } from '../services/requestAPI';
 import ClimateResult from './Climate';
+import '../styles/mainContent.css';
 
 function MainComponent() {
   const {
@@ -11,6 +11,7 @@ function MainComponent() {
     setCityName,
     setDataResult,
     setLoading,
+    dataResult,
   } = useContext(ClimaContext);
 
   function handleChangeInput({ target: { value } }) {
@@ -23,22 +24,35 @@ function MainComponent() {
     setTimeout(() => {
       fetchWeather(encodeURIComponent(Object.values(cityName)))
         .then((res) => {
-          setDataResult(res.results);
+          setDataResult(res);
           setLoading(true);
         });
-    }, 3000);
+    }, 2000);
   }
+
+  console.log(dataResult);
   return (
-    <section>
-      <h1>Previsão do tempo</h1>
-      <input
-        type="text"
-        name="inputCity"
-        placeholder="Pesquise aqui o nome da cidade"
-        onChange={ handleChangeInput }
-      />
-      <BsSearch onClick={ handleClick } />
-      <ClimateResult />
+    <section className="main-content-container">
+      <section className="header-page">
+        <h1 className="title-page">Previsão do tempo</h1>
+        <input
+          className="inputCityName"
+          type="text"
+          name="inputCity"
+          placeholder="Insira o nome da cidade"
+          onChange={ handleChangeInput }
+          autoComplete="off"
+        />
+        <button
+          type="button"
+          className="iconSearch"
+          onClick={ handleClick }
+        >
+          <i className="fa fa-search" aria-hidden="true" />
+        </button>
+
+      </section>
+      { dataResult ? (<ClimateResult />) : null }
     </section>
   );
 }
