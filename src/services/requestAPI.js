@@ -3,7 +3,7 @@ export async function fetchWeather(cityName) {
     method: 'GET',
   };
 
-  const response = await fetch(`https://api.hgbrasil.com/weather?format=json-cors&key=0a2da579&city_name=${cityName}`, config);
+  const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${process.env.REACT_APP_OPEN_WHEATHER_KEY}&lang=pt_br&units=metric`, config);
   const data = await response.json();
   return data;
 }
@@ -13,7 +13,7 @@ export async function fetchWeatherWithLocation(lat, long) {
     method: 'GET',
   };
 
-  const response = await fetch(`https://api.hgbrasil.com/weather?format=json-cors&key=0a2da579&lat=${lat}&lon=${long}&user_ip=remote`, config);
+  const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_OPEN_WHEATHER_KEY}&lang=pt_br&units=metric`, config);
   const data = await response.json();
   return data;
 }
