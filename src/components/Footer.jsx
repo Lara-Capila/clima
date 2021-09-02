@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../styles/footer.css';
+
 function Footer() {
   const now = new Date();
   const monName = [
@@ -15,7 +17,7 @@ function Footer() {
     'dezembro',
   ];
   return (
-    <p>
+    <footer className="footer-container">
       Consulta realizada em
       { ' ' }
       {
@@ -24,7 +26,7 @@ function Footer() {
         de ${now.getFullYear()}
         ás ${now.getHours()}:${now.getMinutes()}`
       }
-    </p>
+    </footer>
   );
 }
 

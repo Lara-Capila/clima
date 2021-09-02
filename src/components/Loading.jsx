@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import ClimaContext from '../context/ClimaContext';
 
-import '../style/loading.css';
+import '../styles/loading.css';
 
 function Loading() {
   const { isLoading } = useContext(ClimaContext);
