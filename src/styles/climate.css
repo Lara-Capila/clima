@@ -26,3 +26,9 @@
   margin: 5px;
   font-weight: bold;
 }
+
+@media (min-width: 600px) {
+  .climate-container {
+    width: 60vw;
+  }
+}
