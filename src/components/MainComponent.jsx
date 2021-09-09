@@ -30,7 +30,6 @@ function MainComponent() {
     }, 2000);
   }
 
-  console.log(dataResult);
   return (
     <section className="main-content-container">
       <section className="header-page">
