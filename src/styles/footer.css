@@ -1,8 +1,14 @@
-footer {
+.footer-container {
   position: fixed;
   bottom: 0;
   text-align: center;
   padding: 20px;
   width: 70vw;
   font-size: 18px;
+}
+
+@media (min-width: 600px) {
+  .footer-container {
+    width: 50vw;
+  }
 }
