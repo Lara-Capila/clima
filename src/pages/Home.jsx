@@ -9,7 +9,7 @@ import '../styles/default.css';
 function HomePage() {
   const {
     setDataResult,
-    // isLocation,
+    isLocation,
     setLocation,
   } = useContext(ClimaContext);
 
@@ -20,6 +20,7 @@ function HomePage() {
       setLocation(true);
     });
   }, []);
+  console.log(isLocation);
 
   return (
     <main>
