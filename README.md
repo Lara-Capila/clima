@@ -1,7 +1,7 @@
 # Previsão do Tempo
 <img style="width: 500px; height: 300px" src="https://blog4.mfrural.com.br/wp-content/uploads/2020/02/clima-x-tempo.jpg" alt="imagem com vários tipos de clima" />
 
-- Aplicativo de clima e tempo com possibilidade de buscar registro pela localização do usuário ou por pesquisa;
+- Aplicativo previsão do tempo com possibilidade de buscar registro pela localização do usuário ou por pesquisa;
 
 - Construido em React utilizando Context API;
 
